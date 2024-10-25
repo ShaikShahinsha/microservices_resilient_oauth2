@@ -12,6 +12,11 @@ spring:
       httpclient:
         connection-timeout: 1000
         response-timeout: 10s
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwt-set-url: "http://localhost:7080/realms/master/protocol/openid-connect/certs"
 
 
 management:
@@ -25,6 +30,9 @@ management:
   info:
     env:
       enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
 
 info:
   app:
